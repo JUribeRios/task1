@@ -1,0 +1,131 @@
+#include <iostream>
+
+/*1. Declare una cadena de caracteres llamada my_string utilizando un puntero */
+char *my_string ="cadena de caracteres";
+//std::cout<<"Cadena my_string: ";
+//std::cout<< my_string <<std::endl;
+
+//2. Declare una estructura global con 6 miembros de distinto tipo y en este orden (con sus miembros inicializados):
+struct Estructura1
+{
+ int valor1;
+ char valor2;
+ float valor3;
+ char valor4;
+ double valor5;
+ int valor6;
+};
+
+struct Estructura1 varstruct1 = { 4, 'j', 2.5, 'e', 5.89, 6};
+
+/*varstruct1.valor1=4;
+varstruct1.valor2='j';
+varstruct1.valor3=2.0;
+varstruct1.valor4='e';
+varstruct1.valor5=5.0;
+varstruct1.valor6=6;*/
+
+// Declare otra estructura global con 6 miembros de distinto tipo y en este orden (con sus miembros inicializados):
+struct Estructura2
+{
+  int a;
+  int b;
+  float c;
+  char d;
+  char e;
+  double f;
+};
+ 
+struct Estructura2 varstruct2 = { 8, 1, 3.7, 'e', 'u', 9.2468};
+ 
+/*varstruct2.a=8;
+varstruct2.b=1;
+varstruct2.c=3.0;
+varstruct2.d='s';
+varstruct2.e='u';
+varstruct2.f=0.0;*/
+
+//Declare punteros a cada una de las estructuras e imprima en pantalla el valor de sus miembros haciendo uso
+//del operador ->
+
+Estructura1 *punt=&varstruct1;
+Estructura2 *punte=&varstruct2;
+
+//std::cout<<"Estructura 1 valor 1: "<< *punt <<std::endl;
+
+//Luego imprima de nuevo el valor de los miembros de la estructura pero esta vez haga uso de "type casting",
+//operadores y aritmetica de punteros
+//Calcule el tamaC1o de cada estructura con la funcion sizeof() y explique en un comentario sus observaciones
+//acerca del resultado obtenido respecto a los tamanios de las estructuras
+
+/*3.Agregue a la funcion foo_function() un arreglo unidimensional del tipo y del tamanio que ud prefiera.
+ * Declare un puntero al arreglo y luego agregue las lineas de codigo necesarias para lograr que cada vez que
+ * se haga un llamado a la funcion foo_function() dentro de la funcion main se imprima un elemento del arreglo
+ * (en el orden que estan en el arreglo) con ayuda de la aritmetica de punteros.
+ */
+
+/* Enlaces de internet utiles:
+ * http://c.conclase.net/curso/index.php?cap=011
+ * http://c.conclase.net/curso/index.php?cap=011b#STR_sizeof
+ * https://stackoverflow.com/questions/8657776/pointer-arithmetic-with-structures
+ * https://stackoverflow.com/questions/119123/why-isnt-sizeof-for-a-struct-equal-to-the-sum-of-sizeof-of-each-member
+ * http://www.catb.org/esr/structure-packing/
+ * https://www.geeksforgeeks.org/structure-member-alignment-padding-and-data-packing/
+ */
+
+int foo_function(void); //Esta declaracion dejela tal y como esta
+
+int main()
+{
+
+ //Estructura1 variable1 var;
+//struct Estructura1 var2;
+//Estructura1 pointer;
+int imprimir;
+std::cout<<"Cadena my_string: ";
+std::cout<< my_string <<std::endl;	
+
+std::cout<<"Estructura 1 valor 1: "<< punt->valor1 <<std::endl;
+std::cout<<"Estructura 1 valor 2: "<< punt->valor2 <<std::endl;
+std::cout<<"Estructura 1 valor 3: "<< punt->valor3 <<std::endl;
+std::cout<<"Estructura 1 valor 4: "<< punt->valor4 <<std::endl;
+std::cout<<"Estructura 1 valor 5: "<< punt->valor5 <<std::endl;
+std::cout<<"Estructura 1 valor 6: "<< punt->valor6 <<std::endl;
+std::cout<<"Estructura 2 valor de a: "<< punte->a <<std::endl;
+std::cout<<"Estructura 2 valor de b: "<< punte->b <<std::endl;
+std::cout<<"Estructura 2 valor de c: "<< punte->c <<std::endl;
+std::cout<<"Estructura 2 valor de d: "<< punte->d <<std::endl;
+std::cout<<"Estructura 2 valor de e: "<< punte->e <<std::endl;
+std::cout<<"Estructura 2 valor de f: "<< punte->f <<std::endl;
+	//Agregue su codigo aqui
+std::cout<<"Estructura 1 valor 1: "<< *((int*)punt) <<std::endl;
+
+//std::cout<<"Estructura 1 valor 1: "<< *((char*)punt) <<std::endl;
+//pointer=&var;	
+//std::cout<<"Estructura 1 valor 1: "<< *pointer <<std::endl;
+std::cout<<"TamaC1o estructura 1: "<< sizeof(struct Estructura1) <<std::endl;
+std::cout<<"TamaC1o estructura 2: "<< sizeof(struct Estructura2) <<std::endl;
+   
+
+    //Aqui puede agregar mas llamadas a function1.....
+  imprimir=foo_function();
+        
+std::cout<<"Elemento del arreglo: "<< imprimir <<std::endl;
+
+
+    return 0;
+}
+
+int foo_function(void)
+{
+	//Su codigo aqui
+int x[10] = {10,11,12,13,14,15,16,17,18,19};
+int *punter= &x[0];
+
+for(int x=0;x<10;++x)
+
+return(*punter);
+
+   // std::cout<<<<std::endl;
+    //Su codigo aqui tambien si quiere
+}
