@@ -1,0 +1,38 @@
+#include <iostream>
+
+
+int diagsum(void);
+int resultado=0;
+int main()
+{
+   resultado=diagsum();
+   std::cout<<"la suma es "<<resultado<<std::endl;
+    return 0;
+}
+
+int diagsum(void)
+{
+ int n=3;
+ int matriz[3][3]={{3,7,1},{9,1,6},{2,4,8}};
+int acumular_1=0;
+int acumular_2=0;
+int suma=0;
+for(int i=0;i<3;++i)
+ {
+    for(int j=0;j<n;j++)
+    {
+     if(i==j)
+      acumular_1=acumular_1+matriz[i][j];
+     }
+ }
+for(int k=2;k>-1;k--)
+{
+    for(int l=0;l<n;l++)
+    {
+      if(k==l)
+       acumular_2=acumular_2+matriz[k][l];
+    }
+}
+ suma=acumular_1+acumular_2;
+return (suma);
+}
